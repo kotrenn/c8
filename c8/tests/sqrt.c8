@@ -1,0 +1,26 @@
+fun float fabs(float x)
+  if (x < 0)
+    return -1.0 * x;
+  fi
+  return x;
+nuf
+
+fun float avg(float a, float b)
+  return 0.5 * (a + b);
+nuf
+
+fun float sqrt(float x)
+  float epsilon = 0.00001;
+  float guess = 1.0;
+  float error = 1.0;
+  while (fabs(error) > epsilon)
+    guess = avg(guess, x / guess);
+    error = x - guess * guess;
+  elihw
+  return guess;
+nuf
+
+int n;
+for (n = 0; n <= 100; n += 1)
+  print(sqrt(n / 10.0));
+rof

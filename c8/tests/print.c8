@@ -1,0 +1,12 @@
+print(1337);
+print(4);
+print(8);
+print(15);
+print(16);
+print(23);
+print(42);
+print(108);
+print(1.0);
+print(2.0);
+print(3.0);
+print(10.50);

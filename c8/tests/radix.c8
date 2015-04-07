@@ -1,0 +1,16 @@
+fun int radix(int n, int r)
+  if (n < r)
+    return n;
+  fi
+  int ret = 10 * radix(n / r, r);
+  ret += n % r;
+  return ret;
+nuf
+
+int n;
+int r;
+for (r = 2; r <= 10; r += 1)
+  for (n = 0; n <= 16; n += 1)
+    print(radix(n, r));
+  rof
+rof

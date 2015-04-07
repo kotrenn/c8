@@ -1,0 +1,28 @@
+int x = 2;
+int y = 3;
+
+if (x < y)
+  print(x);
+fi
+
+if (x < y)
+  print(x);
+else
+  print(y);
+fi
+
+if (x > y)
+  print(x);
+else
+  print(y);
+fi
+
+if (2 < 3)
+  if (3 > 4)
+    print(-1);
+  else
+    print(-2);
+  fi
+else
+  print(-3);
+fi

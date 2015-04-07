@@ -1,0 +1,16 @@
+int x;
+int y = 4;
+
+for (x = 3; x < 5; x += 1)
+  int y = 5;
+  print(y);
+rof
+
+x = 3;
+while (x < 5)
+  int y = 6;
+  print(y);
+  x += 1;
+elihw
+
+print(y);

@@ -1,0 +1,6 @@
+float x = 2.0;
+float y = 3.0;
+float z = x + y;
+print(x);
+print(y);
+print(z);

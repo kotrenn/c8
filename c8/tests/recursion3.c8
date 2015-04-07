@@ -1,0 +1,13 @@
+fun int fact(int n)
+  if (n == 0)
+    return 1;
+  else
+    return n * fact(n - 1);
+  fi
+nuf
+
+int n = 2;
+print(fact(n));
+n = 3;
+print(fact(n));
+print(fact(fact(n)));

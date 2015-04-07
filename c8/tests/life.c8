@@ -1,0 +1,164 @@
+int ROWS = 8;
+int COLS = 8;
+
+fun int abs(int x)
+  if (x < 0)
+    return -x;
+  fi
+  return x;
+nuf
+
+fun int pow(int n, int p)
+  if (p == 0)
+    return 1;
+  fi
+  return n * pow(n, p - 1);
+nuf
+
+fun int get_row(int row0, int row1, int row2, int row3,
+                int row4, int row5, int row6, int row7,
+                int r)
+  int row = 0;
+  if (r == 0)
+    row = row0;
+  fi
+  if (r == 1)
+    row = row1;
+  fi
+  if (r == 2)
+    row = row2;
+  fi
+  if (r == 3)
+    row = row3;
+  fi
+  if (r == 4)
+    row = row4;
+  fi
+  if (r == 5)
+    row = row5;
+  fi
+  if (r == 6)
+    row = row6;
+  fi
+  if (r == 7)
+    row = row7;
+  fi
+
+  return row;
+nuf
+
+fun int get_col(int row, int c)
+  c = COLS - c - 1;
+  return row / pow(10, c) % 10;
+nuf
+
+fun int set_col(int row, int c, int val)
+  c = COLS - c - 1;
+  int new_val = val * pow(10, c);
+  int rhs = row % pow(10, c);
+  int c1 = pow(10, c + 1);
+  int lhs = c1 * (row / c1);
+  int ret = lhs + new_val + rhs;
+  return ret;
+nuf
+
+fun int get_cell(int row0, int row1, int row2, int row3,
+                 int row4, int row5, int row6, int row7,
+                 int r, int c)
+  r = (r + ROWS) % ROWS;
+  c = (c + COLS) % COLS;
+  int row = get_row(row0, row1, row2, row3,
+                    row4, row5, row6, row7, r);
+  int val = get_col(row, c);
+  return val;
+nuf
+
+fun int simulate_row(int row0, int row1, int row2, int row3,
+                     int row4, int row5, int row6, int row7, int r)
+  int row = 0;
+  int c;
+  for (c = 0; c < COLS; c += 1)
+    int dx;
+    int dy;
+    int sum = 0;
+    for (dx = -1; dx <= 1; dx += 1)
+      for (dy = -1; dy <= 1; dy += 1)
+        if (abs(dx) + abs(dy) > 0)
+          int x = c + dx;
+          int y = r + dy;
+          sum += get_cell(row0, row1, row2, row3,
+                          row4, row5, row6, row7,
+                          y, x);
+        fi
+      rof
+    rof
+    int cur = get_cell(row0, row1, row2, row3,
+                       row4, row5, row6, row7,
+                       r, c);
+    int val = 0;
+    if (cur)
+      if (sum == 2 || sum == 3)
+        val = 1;
+      fi
+    else
+      if (sum == 3)
+        val = 1;
+      fi
+    fi
+    row = set_col(row, c, val);
+  rof
+  return row;
+nuf
+
+fun int print_row(int row)
+  int c;
+  for (c = 0; c < COLS; c += 1)
+    int val = get_col(row, c);
+    if (val == 0)
+      val = 8;
+    fi
+    row = set_col(row, c, val);
+  rof
+  print(row);
+nuf
+
+fun int simulate(int n)
+  int row0 = 00101101;
+  int row1 = 01100011;
+  int row2 = 11001010;
+  int row3 = 01011010;
+  int row4 = 00110101;
+  int row5 = 11100100;
+  int row6 = 10010110;
+  int row7 = 10011001;
+  int i;
+  for (i = 0; i < n; i += 1)
+    int tmp0 = simulate_row(row0, row1, row2, row3,
+                            row4, row5, row6, row7, 0);
+    int tmp1 = simulate_row(row0, row1, row2, row3,
+                            row4, row5, row6, row7, 1);
+    int tmp2 = simulate_row(row0, row1, row2, row3,
+                            row4, row5, row6, row7, 2);
+    int tmp3 = simulate_row(row0, row1, row2, row3,
+                            row4, row5, row6, row7, 3);
+    int tmp4 = simulate_row(row0, row1, row2, row3,
+                            row4, row5, row6, row7, 4);
+    int tmp5 = simulate_row(row0, row1, row2, row3,
+                            row4, row5, row6, row7, 5);
+    int tmp6 = simulate_row(row0, row1, row2, row3,
+                            row4, row5, row6, row7, 6);
+    int tmp7 = simulate_row(row0, row1, row2, row3,
+                            row4, row5, row6, row7, 7);
+    print_row(row0 = tmp0);
+    print_row(row1 = tmp1);
+    print_row(row2 = tmp2);
+    print_row(row3 = tmp3);
+    print_row(row4 = tmp4);
+    print_row(row5 = tmp5);
+    print_row(row6 = tmp6);
+    print_row(row7 = tmp7);
+    print(-1);
+  rof
+nuf
+
+simulate(10);

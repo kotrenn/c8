@@ -1,0 +1,16 @@
+fun int foo(int *x)
+  int y = 3 + *x;
+  return y;
+nuf
+
+fun int bar(int *x)
+  *x += 4;
+  return *x;
+nuf
+
+int z = 5;
+print(z);
+print(foo(&z));
+print(z);
+print(bar(&z));
+print(z);

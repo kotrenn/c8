@@ -1,0 +1,13 @@
+fun int fact(int n)
+  if (n == 0)
+    return 1;
+  else
+    return n * fact(n - 1);
+  fi
+nuf
+
+int n;
+
+for (n = 0; n <= 6; n += 1)
+  print(fact(n));
+rof

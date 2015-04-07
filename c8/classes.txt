@@ -1,0 +1,47 @@
+VarTable
+FuncTable
+
+Primary
+Program : Primary
+
+Func : Primary
+PrintFunc : Func
+
+Block : Primary
+BlockList : Block
+Statement : Block
+IfThenElseBlock : IfBlock
+IfThenBlock : IfBlock
+ForBlock : Block
+WhileBlock : Block
+
+VarDeclStatement : Statement // has two constructors
+ReturnStatement : Statement
+
+VarDecl
+
+Exp : Statement
+BinaryExp : Exp
+IncExp : Exp
+MinusExp : Exp
+BinaryBitExp : Exp
+NotBitExp : Exp
+FuncExp : Exp
+AddressExp : Exp
+DerefExp : Exp
+ParExp : Exp
+AssignExp : Exp
+VarExp : Exp
+NumberExp : Exp
+
+BoolExp
+LogicBoolExp : BoolExp
+BinaryBoolExp : BoolExp
+ParBoolExp : BoolExp
+BoolBoolExp : BoolExp
+
+ArgDecl
+ArgDeclList : ArgDecl
+
+ArgVal
+ArgValList : ArgVal

@@ -1,0 +1,46 @@
+int x = 2;
+int y = 3;
+int z = 3;
+
+if (x == y)
+  print(1);
+fi
+if (y == z)
+  print(2);
+fi
+if (x != y)
+  print(3);
+fi
+if (y != z)
+  print(4);
+fi
+if (x < y)
+  print(5);
+fi
+if (y < z)
+  print(6);
+fi
+if (x > y)
+  print(7);
+fi
+if (y > x)
+  print(8);
+fi
+if (x <= y)
+  print(9);
+fi
+if (y <= x)
+  print(10);
+fi
+if (y <= z)
+  print(11);
+fi
+if (x >= y)
+  print(12);
+fi
+if (y >= x)
+  print(13);
+fi
+if (y >= z)
+  print(14);
+fi

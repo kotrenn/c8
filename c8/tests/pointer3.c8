@@ -1,0 +1,14 @@
+fun int swap(int *x, int *y)
+  int tmp = *x;
+  *x = *y;
+  *y = tmp;
+  return *x;
+nuf
+
+int x = 3;
+int y = 4;
+print(x);
+print(y);
+swap(&x, &y);
+print(x);
+print(y);

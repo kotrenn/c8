@@ -1,0 +1,19 @@
+int minNum = 2;
+int maxNum = 100;
+
+fun int isPrime(int x)
+  int i;
+  for (i = 2; i < x; i += 1)
+    if (x%i == 0)
+      return 0;
+    fi
+  rof
+  return 1;
+nuf
+
+int i;
+for (i = minNum; i < maxNum; i += 1)
+  if (isPrime(i))
+    print(i);
+  fi
+rof

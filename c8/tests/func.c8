@@ -1,0 +1,37 @@
+fun int square(int n)
+  int ret = n * n;
+  return ret;
+nuf
+
+fun int sum(int a, int b, int c)
+  return a + b + c;
+nuf
+
+fun int max(int a, int b)
+  if (a > b)
+    return a;
+  else
+    return b;
+  fi
+nuf
+
+fun int max3(int a, int b, int c)
+  return max(a, max(b, c));
+nuf
+
+int x;
+for (x = 0; x < 10; x += 1)
+  print(square(x));
+rof
+
+print(sum(1, 2, 3));
+print(sum(2, 3, 4));
+print(sum(3, 4, 5));
+print(max(2, 3));
+print(max(3, 2));
+print(max3(4, 7, 9));
+print(max3(4, 9, 7));
+print(max3(7, 4, 9));
+print(max3(7, 9, 4));
+print(max3(9, 4, 7));
+print(max3(9, 7, 4));

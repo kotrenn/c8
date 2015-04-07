@@ -1,0 +1,15 @@
+fun int fib(int n)
+  if (n == 0)
+    return 0;
+  fi
+  if (n == 1)
+    return 1;
+  fi
+  return fib(n - 1) + fib(n - 2);
+nuf
+
+int n;
+
+for (n = 0; n <= 17; n += 1)
+  print(fib(n));
+rof

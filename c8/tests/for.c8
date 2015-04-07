@@ -1,0 +1,14 @@
+int i;
+int j;
+
+for (i = 0; i < 5; i += 1)
+  print(i);
+rof
+
+for (i = 0; i < 5; i += 1)
+  for (j = 0; j < 5; j += 1)
+    if ((i + j) % 3 == 0)
+      print(i * j);
+    fi
+  rof
+rof

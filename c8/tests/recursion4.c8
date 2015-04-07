@@ -1,0 +1,17 @@
+fun int ack(int m, int n)
+  if (m == 0)
+    return n + 1;
+  fi
+  if (n == 0)
+    return ack(m - 1, 1);
+  fi
+  return ack(m - 1, ack(m, n - 1));
+nuf
+
+int m;
+int n;
+for (m = 0; m <= 3; m += 1)
+  for (n = 0; n <= 4; n += 1)
+    print(ack(m, n));
+  rof
+rof

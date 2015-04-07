@@ -1,0 +1,106 @@
+fun int min(int a, int b)
+  if (a < b)
+    return a;
+  else
+    return b;
+  fi
+nuf
+
+fun int pow(int n, int p)
+  if (p == 0)
+    return 1;
+  fi
+  int ret = pow(n, p / 2);
+  ret *= ret;
+  if (p % 2 == 1)
+    ret *= n;
+  fi
+  return ret;
+nuf
+
+fun int get(int array, int x)
+  x = len(array) - x - 1;
+  return array / pow(10, x) % 10;
+nuf
+
+fun int set(int array, int x, int val)
+  x = len(array) - x - 1;
+  int new_val = val * pow(10, x);
+  int rhs = array % pow(10, x);
+  int x1 = pow(10, x + 1);
+  int lhs = x1 * (array / x1);
+  int ret = lhs + new_val + rhs;
+  return ret;
+nuf
+
+fun int len(int array)
+  if (array == 0)
+    return 0;
+  fi
+  return 1 + len(array / 10);
+nuf
+
+fun int new_array(int n)
+  if (n == 0)
+    return 0;
+  fi
+  return new_array(n - 1) * 10 + 1;
+nuf
+
+fun int merge(int array)
+  int n = len(array);
+  if (n == 1)
+    return array;
+  fi
+
+  int a = n / 2;
+  int b = n - a;
+  int lhs = new_array(a);
+  int rhs = new_array(b);
+  int i;
+  int j;
+  for (i = 0; i < a; i += 1)
+    lhs = set(lhs, i, get(array, i));
+  rof
+  for (j = 0; j < b; j += 1)
+    rhs = set(rhs, j, get(array, a + j));
+  rof
+  
+  lhs = merge(lhs);
+  rhs = merge(rhs);
+
+  i = j = 0;
+  int k = 0;
+  while (i < a && j < b)
+    int min_val;
+    if (get(lhs, i) < get(rhs, j))
+      min_val = get(lhs, i);
+      i += 1;
+    else
+      min_val = get(rhs, j);
+      j += 1;
+    fi
+    array = set(array, k, min_val);
+    k += 1;
+  elihw
+  while (i < a)
+    int val = get(lhs, i);
+    i += 1;
+    array = set(array, k, val);
+    k += 1;
+  elihw
+  while (j < b)
+    int val = get(rhs, j);
+    j += 1;
+    array = set(array, k, val);
+    k += 1;
+  elihw
+  
+  return array;
+nuf
+
+print(merge(5492179));
+print(merge(12121212));
+print(merge(987654321));
+print(merge(2423879));
+print(merge(29385721));

@@ -1,0 +1,13 @@
+fun int binary(int n)
+  if (n < 2)
+    return n;
+  fi
+  int ret = 10 * binary(n / 2);
+  ret += n % 2;
+  return ret;
+nuf
+
+int n;
+for (n = 0; n <= 16; n += 1)
+  print(binary(n));
+rof

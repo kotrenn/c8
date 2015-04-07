@@ -1,0 +1,20 @@
+int x = 3;
+while (x < 10)
+  print(x);
+  x += 1;
+elihw
+
+while (x < 3)
+  print(100);
+elihw
+
+x = 0;
+int y = x;
+while (x < 4)
+  y = 0;
+  while (y < x)
+    print(x + y);
+    y += 1;
+  elihw
+  x += 1;
+elihw

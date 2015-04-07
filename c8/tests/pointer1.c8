@@ -1,0 +1,14 @@
+int x = 3;
+print(x);
+int *y = &x;
+print(x);
+print(*y);
+*y = 4;
+print(x);
+print(*y);
+int **z = &y;
+print(**z);
+**z = 5;
+print(x);
+print(*y);
+print(**z);
